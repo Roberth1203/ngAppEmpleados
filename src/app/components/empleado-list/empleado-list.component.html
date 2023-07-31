@@ -1,0 +1,38 @@
+<div class="container">
+    <app-count-empleados 
+    [todos]="totalEmpleados"
+    [hombres]="obtenerTotalHombres()"
+    [mujeres]="obtenerTotalMujeres()"
+    (countRadioButtonChange)="empleadoCountRadioButtonChange($event)"></app-count-empleados>
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                        <th>Legajo</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Sexo</th>
+                        <th>Salario</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Las directivas *ngFor y *ngIf no pueden estár en un mismo elelmento, 
+                        por lo tanto, se soluciona creando una etiqueta padre con el for 
+                        y en la etiqueta hijo se agrega el if -->
+                    <ng-container *ngFor="let empleado of listEmpleados">
+                        <tr *ngIf="opcionSeleccionada == 'Todos' || opcionSeleccionada == empleado.sexo ">
+                            <td>{{ empleado.legajo }}</td>
+                            <td>{{ empleado.nombre }}</td>
+                            <td>{{ empleado.apellido }}</td>
+                            <td>{{ empleado.sexo }}</td>
+                            <td>{{ empleado.salario | currency: 'MXN':'symbol-narrow':'4.2-2' }}</td>
+                        </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

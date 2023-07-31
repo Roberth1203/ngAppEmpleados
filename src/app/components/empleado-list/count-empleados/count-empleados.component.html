@@ -1,0 +1,25 @@
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)] = "opcionSeleccionada" 
+            type="radio" name="sexo" id="todos" value="Todos" (change)="cambioDeOpcion()">
+            <label class="form-check-label" for="todos">
+                Todos <span class="badge text-bg-primary">{{ todos }}</span>
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)] = "opcionSeleccionada" 
+            type="radio" name="sexo" id="femenino" value="Femenino" (change)="cambioDeOpcion()">
+            <label class="form-check-label" for="femenino">
+                Mujeres <span class="badge text-bg-primary">{{ mujeres }}</span>
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" [(ngModel)] = "opcionSeleccionada" 
+            type="radio" name="sexo" id="masculino" value="Masculino" (change)="cambioDeOpcion()">
+            <label class="form-check-label" for="masculino">
+                Hombres <span class="badge text-bg-primary">{{ hombres }}</span>
+            </label>
+        </div>
+    </div>
+</div>
